@@ -7,7 +7,9 @@ pessoas = [
     {'nome': 'Viana', 'idade': 26}
 ]
 
-menores = filter(lambda pessoa: pessoa['idade'] < 18, pessoas)
+menores = list(filter(lambda pessoa: pessoa['idade'] < 18, pessoas))
+
+print(menores)
 
 nome_grande = filter(lambda pessoa: len(pessoa['nome']) > 6, pessoas)
 
