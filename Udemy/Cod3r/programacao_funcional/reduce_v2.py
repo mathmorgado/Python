@@ -11,7 +11,6 @@ pessoas = [
 menor_idade = list(filter(lambda p: p['idade'] < 18, pessoas ))
 
 idades = list(map(lambda x: x['idade'], menor_idade))
-print(idades)
 
-sum_idade = reduce(lambda acumulador, all_idade: acumulador + all_idade, idades, 0)
+sum_idade = reduce(lambda idades, idade: idades + idade, idades, 0)
 print(sum_idade)
