@@ -1,4 +1,4 @@
-# Solução que fiz
+# Solução que fiz (nada 'funcional'...)
 
 def fatorial_normal(num):
     fat = num - 1
