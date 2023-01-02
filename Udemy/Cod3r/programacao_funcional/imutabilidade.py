@@ -5,17 +5,6 @@ from functools import reduce
 # Pt- br
 setlocale(LC_ALL, 'pt_BR')
 
-# Procedural
-
-print(f'Meses com 31 dias:')
-
-for mes in range(1, 13):
-    if mdays[mes] == 31:
-        print(f'- {month_name[mes]}')
-
-
-
-
 # Separados
 indices_31 = filter(lambda mes: mdays[mes] if mdays[mes] == 31 else '', range(1, 13))
 meses_nome = map(lambda mes: month_name[mes], indices_31)
