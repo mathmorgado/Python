@@ -1,8 +1,4 @@
-"""
-Passo 1: Pegar o menor valor
-passo 2: Testar se são todos os itens da lista são divisiveis por ele
-passo 3: Diminuir de 1 em 1 até achar o valor que divide todos
-"""
+# Solução do professor
 def mdc(lista): # Minimo divisor comum
     def calc(divisor):
         return divisor if sum(map(lambda x: x % divisor, lista)) == 0 else calc(divisor - 1)
