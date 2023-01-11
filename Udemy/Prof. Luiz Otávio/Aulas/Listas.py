@@ -22,7 +22,7 @@ l2.append(y)  # Adiciona um elemento interavel no final
 
 print('Append =', l2 )
 
-l2.insert(9, 10)
+l2.insert(9, 10) # Insere um valor no index definido
 
 print('Insert =', l2 )
 
@@ -57,47 +57,3 @@ lis.insert(0, max(lis))
 del(lis[-1])
 
 print('maior valor no início =', lis)
-
-# Forca
-
-palavra_secreta = 'cheirosa'
-digitado = []
-CHANCES = 5
-
-
-while True:
-    if CHANCES <= 0:
-        print(f'Você perdeu!')
-    
-    letra = input('Digite uma única letra: ').lower()
-
-    if len(letra) > 1:
-        print('ERROR: Por favor, digite apenas uma letra!')
-        continue
-
-    digitado.append(letra)
-
-    if letra in palavra_secreta:
-        print('Parabéns, você acertou uma letra!')
-    else:
-        print('Que pena, essa letra não faz parte da palavra secreta.')
-        digitado.pop()
-    
-    secreto_temporario = ''
-
-    for letra_secreta in palavra_secreta:
-        if letra_secreta in digitado:
-            secreto_temporario += letra_secreta
-        else:
-            secreto_temporario += '*'
-    
-    print(secreto_temporario)
-
-    if secreto_temporario == palavra_secreta:
-        print('Parabéns, você descobriu a palavra secreta!')
-        break
-
-    if letra not in palavra_secreta:
-        CHANCES -= 1
-    
-    print(f'Você ainda tem {CHANCES} chances!')
