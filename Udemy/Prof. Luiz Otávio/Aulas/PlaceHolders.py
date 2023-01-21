@@ -1,4 +1,4 @@
-#  PlaceHolders são para "Segurar um lugar" para, posteriormente, definir o código ali
+#  PlaceHolders são para "Segurar um lugar" para, posteriormente, definir o código ali.
 
 condicao = True
 
