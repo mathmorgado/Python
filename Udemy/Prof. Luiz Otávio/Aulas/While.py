@@ -25,7 +25,7 @@ nova_string = ''
 cont = 0
 
 #  Interando <- Interar
-while contador < len(frase):  # Deixar todos os R's maiúsculos!
+while cont < len(frase):  # Deixar todos os R's maiúsculos!
     letra = frase[cont]
 
     if letra == 'r':
