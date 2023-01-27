@@ -6,3 +6,14 @@ VALUES
     ('Bradesco', 95694186000132),
     ('Vale', 27887148000146),
     ('Cielo', 014598317000134);
+
+desc empresas;
+desc prefeitos;
+
+INSERT INTO empresas_unidades
+    (empresa_id, cidade_id, sede)
+VALUES
+    (1, 1, 1),
+    (1, 2, 0),
+    (2, 1, 0),
+    (2, 2, 1);
