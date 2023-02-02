@@ -1,5 +1,5 @@
 from bd import nova_conexao
-from mysql.connector import ProgrammingError
+from mysql.connector.errors import ProgrammingError
 
 with nova_conexao() as conexao:
     try:
