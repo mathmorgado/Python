@@ -1,13 +1,14 @@
 from mysql.connector.errors import ProgrammingError
 from bd import nova_conexao
 
-sql = 'SELECT * FROM contatos LIMIT 5 OFFSET 6'
+sql = 'SELECT * FROM contatos LIMIT %s OFFSET %s'
+args = (5, 4)
 
 with nova_conexao() as conexao:
     try:
         cursor = conexao.cursor()
-        cursor.execute(sql)
-        contatos = cursor.fetchall() # Cuidado caso tenha muitos dados na tabela!
+        cursor.execute(sql, args)
+        contatos = cursor.fetchall()
     except ProgrammingError as e:
         print(f'Erro: {e.msg}')
     else:
