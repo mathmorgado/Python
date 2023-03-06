@@ -11,6 +11,9 @@ Métodos úteis dos dicionários em Python
 9- popitem - Apaga o último item adicionado
 10-update - Atualiza um dicionário com outro
 """
+import copy
+
+
 pessoa = {
     'nome': 'Luiz Otávio',
     'sobrenome': 'Miranda',
@@ -35,3 +38,26 @@ for chave, valor in pessoa.items():
 # Alterar algum valor 
 pessoa.setdefault('idade', 18) # (900 -> 18)
 print(pessoa['idade'])
+
+# Copiar items de um dicionario para outro
+pessoa2 = pessoa # Essa forma nn -copia- os items de 'Pessoa' para 'Pessoa2', mas indica que 'Pessoa2' aponta para o dicionario 'Pessoa'
+pessoa2 = pessoa.copy() # Copia os items dentro de 'Pessoa' para 'Pessoa2' de forma "rasa" (sem copiar listas ou entrar em subnives)
+pessoa2 = copy.deepcopy(pessoa) # Copia os items e todos os subnives dentro de 'Pessoa' para 'Pessoa2'
+
+# pega uma chave se existir
+if pessoa.get('nome') is None:
+    print('Chave [nome] não existe!')
+
+# pop x popitem
+del_item_escolhido = pessoa.pop('idade')
+del_ultimo_item = pessoa.popitem()
+
+# Update - Atualiza/altera um dicionario
+pessoa.update({
+    'nome': 'Luiz O.',  # altera um valor já existente
+    'sobrenome': 'Miranda', # Adiciona um novo valor
+})
+
+pessoa.update(nome='Luíz O.', idade=31)
+
+print(pessoa)
