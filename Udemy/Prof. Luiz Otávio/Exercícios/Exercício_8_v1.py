@@ -26,6 +26,8 @@ lista_de_listas_de_inteiros = [
     [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
 ]
 
+# Função para retornar o valor que sua duplicação está mais próxima
+
 def dup_proximo(lista):
     duplicados = []
     valores = {}
