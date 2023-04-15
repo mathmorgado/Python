@@ -47,7 +47,7 @@ def dup_proximo(lista):
                 if first_dup - 1 == 0:
                     distancia = second_dup - first_dup
                 else:
-                    distancia = (second_dup + (first_dup + 1)) - (first_dup + 1)
+                    distancia = second_dup + 1
 
                 valores[int] = distancia
 
