@@ -3,18 +3,17 @@ a, b = 1, 2
 a, b = b, a
 # print(a, b)
 
-
-# (a1, a2), (b1, b2) = pessoa.items()
-# print(a1, a2)
-# print(b1, b2)
-
-# for chave, valor in pessoa.items():
-#     print(chave, valor)
-
 pessoa = {
     'nome': 'Aline',
     'sobrenome': 'Souza',
 }
+
+# for chave, valor in pessoa.items():
+#     print(chave, valor)
+
+(a1, a2), (b1, b2) = pessoa.items()
+print(a1, a2)
+print(b1, b2)
 
 dados_pessoa = {
     'idade': 16,
@@ -30,7 +29,7 @@ pessoas_completa = {**pessoa, **dados_pessoa}
 
 
 def mostro_argumentos_nomeados(*args, **kwargs):
-    print('NÃO NOMEADOS:', args)
+    print('\nNÃO NOMEADOS:', args)
 
     for chave, valor in kwargs.items():
         print(chave, valor)
