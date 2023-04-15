@@ -20,7 +20,6 @@ def exibir(lista):
         print(item)
     print()
 
-
 l1 = sorted(lista, key=lambda item: item['nome'])
 l2 = sorted(lista, key=lambda item: item['sobrenome'])
 
