@@ -5,7 +5,6 @@ while i < len(frase):
     letra = frase.lower()[i]
     letra_mais_aperecida = None
     qtde_letra = 0
-    print(letra)
 
     if i == 0:
         letra_mais_aperecida = letra
