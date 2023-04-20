@@ -3,7 +3,7 @@ Listas em Python
 Tipo list - Mutável
 Suporta vários valores de qualquer tipo
 Conhecimentos reutilizáveis - índices e fatiamento
-Métodos úteis: append, insert, pop, del, clear, extend, min, max
+Métodos úteis: append, insert, pop, del, clear, extend, +, min, max
 """
 #        +01234
 #        -54321
@@ -21,8 +21,16 @@ print(lista[2], type(lista[2]))
 """
 Fatiamento de Listas em python
 
--Métodos-
-append, insert, pop, del, clear, extend, min, max
+    -Métodos-
+append - Adiciona um item ao final
+insert - Adiciona um item ao índice escolhido
+pop - Remove do final ou do índice escolhido e pode retornar o valor
+del - Apaga um índice
+clear - Limpa a lista
+extend - Estende a lista
++ - Concatena as listas
+min - Pega o maior valor da lista
+max - Pega o menor valor da lista
 """
 #     0  1  2  3  4  5  6  7  8
 l2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -48,7 +56,7 @@ print('Insert =', l2 )
 
 # Pop x Del x Clear
 
-ultimo_valor_removido = l2.pop()  # Exclui o último elemento e pode retornar ele numa variavel
+ultimo_valor_removido = l2.pop()  # Exclui por padrão o último elemento e pode retornar ele numa variavel
 
 print( 'Pop =', l2, 'Pop removido =', ultimo_valor_removido )
 
