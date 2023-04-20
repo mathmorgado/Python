@@ -42,5 +42,5 @@ for c in range(0, len(perguntas)):
     else:
         print('Errou!')
     
-    print(f'\nVocê teve {acertos} acertos!')
+print(f'\nVocê teve {acertos} acertos!')
     
