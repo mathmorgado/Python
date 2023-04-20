@@ -48,17 +48,17 @@ print('Insert =', l2 )
 
 # Pop x Del x Clear
 
-l2.pop()  # Exclui o último
+ultimo_valor_removido = l2.pop()  # Exclui o último elemento e pode retornar ele numa variavel
 
-print('Pop =', l2 )
+print( 'Pop =', l2, 'Pop removido =', ultimo_valor_removido )
 
 del(l2[9:])  # Excluí os elementos selecionados
 
-print('Del =', l2 )
+print( 'Del =', l2 )
 
 l2.clear()  # Limpa toda a lista
 
-print('Clear =', l2 )
+print( 'Clear =', l2 )
 
 # Max x Min
 
