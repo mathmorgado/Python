@@ -97,3 +97,9 @@ lista_b = lista_a  # Usando a função 'copy', o problema é resolvido!
 lista_a[0] = 'Qualquer coisa'
 print(f'\n{lista_a}')
 print(f'{lista_b}')
+
+"""
+Empacotamento e desempacotamento
+"""
+_, _, nome, *resto = ['Maria', 'Helena', 'Luiz']
+print(nome)
