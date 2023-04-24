@@ -85,3 +85,15 @@ lis.insert(0, max(lis))
 del(lis[-1])
 
 print('maior valor no início =', lis)
+
+"""
+Cuidados com dados mutáveis
+= - Em dados imutáveis, o valor é 'copiado' 
+= - Em dados mutaveis, se aponta para o mesmo valor na memória
+"""
+lista_a = ['Luiz', 'Maria']
+lista_b = lista_a  # Usando a função 'copy', o problema é resolvido!
+
+lista_a[0] = 'Qualquer coisa'
+print(f'\n{lista_a}')
+print(f'{lista_b}')
