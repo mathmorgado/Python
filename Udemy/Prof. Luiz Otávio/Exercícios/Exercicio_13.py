@@ -22,9 +22,23 @@ O primeiro dígito do CPF é 7
 """
 
 def verificador_cpf(cpf):
-    digitos_cpf = cpf.split('-')[0].split('.')
-    digitos_cpf = ''
-    print(digitos_cpf)
+    digitos_cpf = ''.join(cpf.split('-')[0].split('.'))
+    produto_multiplicacao = 0
+    multiplicador = 10
+
+    for digito in digitos_cpf:
+        produto_multiplicacao += int(digito) * multiplicador
+        multiplicador -= 1
+    
+    primeiro_digito = (produto_multiplicacao * 10) % 11
+
+    if primeiro_digito > 9:
+        primeiro_digito = 0
+        
+    if str(primeiro_digito) == cpf.split('-')[1][0]:
+        print('CORRETO')
+    else:
+        print('ERRADO')
 
 
 verificador_cpf('131.805.026-06')
