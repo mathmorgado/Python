@@ -8,14 +8,9 @@ Exercício - Lista de Compras
 """
 
 lista_compras = []
-qtde = None
 
 while True:
     opcao = str(input('\nSelecione uma opção\n[i]nserir [a]pagar [l]istar [s]air: ')).lower().strip()
-
-    if not opcao.isalpha():
-        print('\n\033[31mError: Opção inválida!\033[m\n')
-        continue
     
     if opcao == 'i':
         item = str(input('Item que deseja inserir: '))
