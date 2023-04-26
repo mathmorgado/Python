@@ -26,7 +26,7 @@ def verificador_cpf(cpf):
 
     while True:
         if pri_digit_verificado:
-            digitos_cpf += str(digito_verificado)
+            digitos_cpf += str(valor_digito)
             digito_verificar = 1
             produto_multiplicacao = 0
             multiplicador = 11
@@ -42,12 +42,12 @@ def verificador_cpf(cpf):
             produto_multiplicacao += int(digito) * multiplicador
             multiplicador -= 1
         
-        digito_verificado = (produto_multiplicacao * 10) % 11
+        valor_digito = (produto_multiplicacao * 10) % 11
 
-        if digito_verificado > 9:
-            digito_verificado = 0
+        if valor_digito > 9:
+            valor_digito = 0
             
-        if str(digito_verificado) == cpf.split('-')[1][digito_verificar]:
+        if str(valor_digito) == cpf.split('-')[1][digito_verificar]:
             pri_digit_verificado = True
 
             if cpf_valido:
