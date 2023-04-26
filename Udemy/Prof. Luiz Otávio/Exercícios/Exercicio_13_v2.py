@@ -21,20 +21,19 @@ contrário disso:
 O primeiro dígito do CPF é 7
 """
 import re
-import sys
 
-def verificador_cpf(cpf):
+def verificador_cpf(cpf, retornar_ultimos_digitos=False):
     pri_digit_verificado = False
     digitos_cpf = re.sub(r'[^0-9]', '', cpf)
     entrada_sequencial = digitos_cpf == digitos_cpf[0] * len(digitos_cpf)
+    ultimos_digitos = '-'
 
     if len(cpf) > 14:
-        print('\033[31mCPF INVÁLIDO!\033[m')
-        sys.exit()
+        return False
         
     if entrada_sequencial:
         print('\033[31mVocê enviou dados sequencias\033[m')
-        sys.exit()
+        return False
 
     while True:
         if pri_digit_verificado:
@@ -59,17 +58,18 @@ def verificador_cpf(cpf):
             
         if str(valor_digito) == digitos_cpf[digito_verificar]:
             pri_digit_verificado = True
+            ultimos_digitos += str(valor_digito)
 
             if cpf_valido:
-                print('CPF VÁLIDO')
-                break
+                if retornar_ultimos_digitos == True:
+                    return ultimos_digitos
+                else:
+                    return True
             else:
                 continue
 
         else:
-            print('\033[31mCPF INVÁLIDO!\033[m')
-            break
+            return False
 
-
-verificador_cpf('131.805.026.06')
+print(verificador_cpf('131.805.026.06'))
     
