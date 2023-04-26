@@ -55,6 +55,10 @@ def verificador_cpf(cpf, retornar_ultimos_digitos=False):
 
         if valor_digito > 9:
             valor_digito = 0
+
+        if retornar_ultimos_digitos == True:
+                digitos_cpf += str(valor_digito)
+                digito_verificar = -1
             
         if str(valor_digito) == digitos_cpf[digito_verificar]:
             pri_digit_verificado = True
@@ -71,5 +75,5 @@ def verificador_cpf(cpf, retornar_ultimos_digitos=False):
         else:
             return False
 
-print(verificador_cpf('131.805.026.06'))
-    
+
+# print(verificador_cpf('340435095-22'))

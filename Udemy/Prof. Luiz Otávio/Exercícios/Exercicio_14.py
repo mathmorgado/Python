@@ -10,4 +10,5 @@ def gerador_cpf():
     cpf += verificador_cpf(cpf, retornar_ultimos_digitos=True)
     return cpf
 
+
 print(gerador_cpf())
