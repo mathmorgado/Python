@@ -46,7 +46,11 @@ def verificador_cpf(cpf):
         
         segundo_digito = (produto_multiplicacao * 10) % 11
 
-        if segundo_digito
+        if str(segundo_digito) == cpf.split('-')[1][1]:
+            print('CPF VÁLIDO')
+        else:
+            print('\033[31mCPF INVÁLIDO!\033[m')
+
     else:
         print('\033[31mCPF INVÁLIDO!\033[m')
 
