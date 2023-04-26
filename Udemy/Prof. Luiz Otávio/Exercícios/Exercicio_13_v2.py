@@ -20,25 +20,35 @@ contrário disso:
     resultado é o valor da conta
 O primeiro dígito do CPF é 7
 """
+import re
+import sys
 
 def verificador_cpf(cpf):
     pri_digit_verificado = False
+    digitos_cpf = re.sub(r'[^0-9]', '', cpf)
+    entrada_sequencial = digitos_cpf == digitos_cpf[0] * len(digitos_cpf)
+
+    if len(cpf) > 14:
+        print('\033[31mCPF INVÁLIDO!\033[m')
+        sys.exit()
+        
+    if entrada_sequencial:
+        print('\033[31mVocê enviou dados sequencias\033[m')
+        sys.exit()
 
     while True:
         if pri_digit_verificado:
-            digitos_cpf += str(valor_digito)
-            digito_verificar = 1
+            digito_verificar = -1
             produto_multiplicacao = 0
             multiplicador = 11
             cpf_valido = True
         else:
-            digitos_cpf = ''.join(cpf.split('-')[0].split('.'))
-            digito_verificar = 0
+            digito_verificar = -2
             produto_multiplicacao = 0
             multiplicador = 10
             cpf_valido = False
 
-        for digito in digitos_cpf:
+        for digito in digitos_cpf[0:9]:
             produto_multiplicacao += int(digito) * multiplicador
             multiplicador -= 1
         
@@ -47,7 +57,7 @@ def verificador_cpf(cpf):
         if valor_digito > 9:
             valor_digito = 0
             
-        if str(valor_digito) == cpf.split('-')[1][digito_verificar]:
+        if str(valor_digito) == digitos_cpf[digito_verificar]:
             pri_digit_verificado = True
 
             if cpf_valido:
@@ -61,5 +71,5 @@ def verificador_cpf(cpf):
             break
 
 
-verificador_cpf('131.805.026-06')
+verificador_cpf('131.805.026.06')
     
