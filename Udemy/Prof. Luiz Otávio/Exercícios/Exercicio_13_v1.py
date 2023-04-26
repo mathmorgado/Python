@@ -36,9 +36,19 @@ def verificador_cpf(cpf):
         primeiro_digito = 0
         
     if str(primeiro_digito) == cpf.split('-')[1][0]:
-        print('CORRETO')
+        digitos_cpf += str(primeiro_digito)
+        produto_multiplicacao = 0
+        multiplicador = 11
+        
+        for digito in digitos_cpf:
+            produto_multiplicacao += int(digito) * multiplicador
+            multiplicador -= 1
+        
+        segundo_digito = (produto_multiplicacao * 10) % 11
+
+        if segundo_digito
     else:
-        print('ERRADO')
+        print('\033[31mCPF INVÁLIDO!\033[m')
 
 
 verificador_cpf('131.805.026-06')
