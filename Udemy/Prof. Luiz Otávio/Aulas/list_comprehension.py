@@ -11,7 +11,7 @@ for numero in range(10):
 
 # Exatamente iguais!
 
-lista = [numero * 2 for numero in range(10)]
+lista = [numero * 2 for numero in range(10)] # List comprehension 
 
 # Mapeamento de dados em list comprehension
 produtos = [
@@ -22,8 +22,12 @@ produtos = [
 
 novos_produtos = [
     {**produto, 'preco': produto['preco'] * 1.05}
-    if produto['preco'] > 20 else {**produto}
+    if produto['preco'] > 20 else {**produto} # Esquerda do for é mapeamento!
     for produto in produtos
+    if produto['preco'] > 10 # Direita do for é filtro!
 ]
 
 print(*novos_produtos, sep='\n')
+
+
+
