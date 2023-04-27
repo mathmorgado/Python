@@ -13,3 +13,6 @@ dc = {
 }
 
 print(dc)
+
+s1 = {2 ** i for i in range(10)}
+print(s1)
