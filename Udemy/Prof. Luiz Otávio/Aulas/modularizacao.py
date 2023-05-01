@@ -8,6 +8,14 @@
 # O python conhece todos os módulos e pacotes presentes
 # nos caminhos de sys.path
 
+import importlib
 import modularizacao_teste
 
-print(f'Este módulo se chama "{__name__}"')
+print(f'Esse módulo se chama "{__name__}"\n')
+print(modularizacao_teste.variavel)
+
+for i in range(10):
+    importlib.reload(modularizacao_teste)
+    print(i)
+
+print('Fim')
