@@ -18,9 +18,9 @@ from modularizacao_package import modulo
 print(f'Esse módulo se chama "{__name__}"\n')
 print(modularizacao_teste.variavel)
 
-for i in range(10):
-    importlib.reload(modularizacao_teste)
-    print(i)
+# for i in range(10):
+#     importlib.reload(modularizacao_teste)
+#     print(i)
 
 print('Fim\n')
 
@@ -30,3 +30,8 @@ print(modularizacao_package.modulo.soma_do_modulo(1, 2))
 print(modulo.soma_do_modulo(1, 2))
 print(variavel)
 # print(nova_variavel) -> Não é importada pelo __all__
+
+from modularizacao_package.modulo import fala_oi, soma_do_modulo
+
+print(__name__)
+fala_oi()
