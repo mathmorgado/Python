@@ -1,2 +1,2 @@
 def fala_oi():
-    print( 'oi' )
+    print( 'oi\n' )
