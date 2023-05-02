@@ -1,16 +1,14 @@
 def fabrica_de_decoradores(a=None, b=None, c=None):
-    def fabrica_de_funcoes(func):
-        print('Decoradora 1')
+    def decoradora_de_funcoes(func):
 
         def aninhada(*args, **kwargs):
-            print('Parâmetros do decorador, ', a, b, c)
-            print('Aninhada')
+            print('Parâmetros do decorador: ', a, b, c)
             res = func(*args, **kwargs)
             return res
         
         return aninhada
     
-    return fabrica_de_funcoes
+    return decoradora_de_funcoes  # Acesso a 3 escopos diferentes
 
 
 @fabrica_de_decoradores(1, 2, 3)
