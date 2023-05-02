@@ -1,33 +1,25 @@
-# Funções decoradoras e decoradores
-# Decorar = Adicionar / Remover/ Restringir / Alterar
-# Funções decoradoras são funções que decoram outras funções
-# Decoradores são usados para fazer o Python
-# usar as funções decoradoras em outras funções.
-# Decoradores são "Syntax Sugar" (Açúcar sintático) pq facilita a vida
+def fabrica_de_decoradores(a=None, b=None, c=None):
+    def fabrica_de_funcoes(func):
+        print('Decoradora 1')
 
-def criar_funcao(func): # funcao decoradora
-    def interna(*args, **kwargs): # funcao a ser retornada sem ser executada
-        print('Vou te decorar')
-        for arg in args:
-            is_string(arg)
-        resultado = func(*args, **kwargs)
-        print(f'O seu resultado foi {resultado}.')
-        print('Ok, agora você foi decorada')
-        return resultado
-    return interna
+        def aninhada(*args, **kwargs):
+            print('Parâmetros do decorador, ', a, b, c)
+            print('Aninhada')
+            res = func(*args, **kwargs)
+            return res
+        return aninhada
+    return fabrica_de_funcoes
 
 
-@criar_funcao # syntax sugar
-def inverte_string(string): # funcao a ser deocrada
-    return string[::-1]
+@fabrica_de_decoradores(1, 2, 3)
+def soma(x, y):
+    return x + y
 
 
-def is_string(param):
-    if not isinstance(param, str):
-        raise TypeError('param deve ser uma string')
+decoradora = fabrica_de_decoradores()
+multiplica = decoradora(lambda x, y: x * y)
 
-
-# inverte_string_checando_parametro = criar_funcao(inverte_string) ->  Sem o decorator @
-# invertida = inverte_string_checando_parametro('123') -> Sem o decorator @
-invertida = inverte_string('123')
-print(invertida)
+dez_mais_cinco = soma(10, 5)
+dez_vezes_cinco = multiplica(10, 5)
+print(dez_mais_cinco)
+print(dez_vezes_cinco)
