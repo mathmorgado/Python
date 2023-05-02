@@ -18,3 +18,5 @@ lista_1 = ['Salvador', 'Ubatuba', 'Belo Horizonte']
 lista_2 = ['BA', 'SP', 'MG', 'RJ']
 
 print(zipper(lista_1, lista_2))
+# print(list(zip(lista_1, lista_2)))
+# print(list(zip_longest(lista_1, lista_2))) -> Ordem apartir da maior lista!
