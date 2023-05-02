@@ -7,12 +7,15 @@ def fabrica_de_decoradores(a=None, b=None, c=None):
             print('Aninhada')
             res = func(*args, **kwargs)
             return res
+        
         return aninhada
+    
     return fabrica_de_funcoes
 
 
 @fabrica_de_decoradores(1, 2, 3)
 def soma(x, y):
+    print('Nome da função: ', soma.__name__) # Retorna nome = 'aninhada' pq o python faz a função 'soma' virar a 'aninhada'
     return x + y
 
 
