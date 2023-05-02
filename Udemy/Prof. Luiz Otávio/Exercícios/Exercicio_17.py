@@ -10,32 +10,11 @@
 # [('Salvador', 'BA'), ('Ubatuba', 'SP'), ('Belo Horizonte', 'MG')]
 
 def zipper(lista_1, lista_2):
-    tamanho_lista_1 = len(lista_1)
-    tamanho_lista_2 = len(lista_2)
-    uniao_listas = []
-    
-    
-    if tamanho_lista_1 < tamanho_lista_2:
-        menor_lista = lista_1
-        maior_lista = lista_2
-        i = range(0, len(maior_lista))
-    else:
-        menor_lista = lista_2
-        maior_lista - lista_1
-        i = range(0, len(maior_lista))
-    
-    
-#    uniao_listas = [(item, maior_lista[i]) for item in menor_lista] ?????
-    for item in menor_lista:
-        uniao = (item, maior_lista[i])
-        uniao_listas.append(uniao)
-        i += 1
-
-    return uniao_listas
+    intervalo_maximo = min(len(lista_1), len(lista_2)) # Vai retornar o ultimo indice da menor lista!
+    return [(lista_1[i], lista_2[i]) for i in range(intervalo_maximo)]
 
 
 lista_1 = ['Salvador', 'Ubatuba', 'Belo Horizonte']
 lista_2 = ['BA', 'SP', 'MG', 'RJ']
 
 print(zipper(lista_1, lista_2))
-
