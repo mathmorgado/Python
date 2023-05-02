@@ -1,5 +1,5 @@
-def parametros_decorador(nome):
-    def decorador(func):
+def parametros_decorator(nome):
+    def decorator(func):
         print('Decorador:', nome)
 
         def sua_nova_funcao(*args, **kwargs):
@@ -7,14 +7,14 @@ def parametros_decorador(nome):
             final = f'{res} {nome}'
             return final
         return sua_nova_funcao
-    return decorador
+    return decorator
 
 
-@parametros_decorador(nome='5')
-@parametros_decorador(nome='4')
-@parametros_decorador(nome='3')
-@parametros_decorador(nome='2')
-@parametros_decorador(nome='1')
+@parametros_decorator(nome='5')
+@parametros_decorator(nome='4')
+@parametros_decorator(nome='3')
+@parametros_decorator(nome='2')
+@parametros_decorator(nome='1')
 def soma(x, y):
     return x + y
 
