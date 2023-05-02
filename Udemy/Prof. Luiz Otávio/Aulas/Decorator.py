@@ -3,6 +3,7 @@
 # Funções decoradoras são funções que decoram outras funções
 # Decoradores são usados para fazer o Python
 # usar as funções decoradoras em outras funções.
+# Decoradores são "Syntax Sugar" (Açúcar sintático) pq facilita a vida
 
 def criar_funcao(func): # funcao decoradora
     def interna(*args, **kwargs): # funcao a ser retornada sem ser executada
@@ -16,6 +17,7 @@ def criar_funcao(func): # funcao decoradora
     return interna
 
 
+@criar_funcao # syntax sugar
 def inverte_string(string): # funcao a ser deocrada
     return string[::-1]
 
@@ -25,6 +27,7 @@ def is_string(param):
         raise TypeError('param deve ser uma string')
 
 
-inverte_string_checando_parametro = criar_funcao(inverte_string)
-invertida = inverte_string_checando_parametro('123')
+# inverte_string_checando_parametro = criar_funcao(inverte_string) ->  Sem o decorator @
+# invertida = inverte_string_checando_parametro('123') -> Sem o decorator @
+invertida = inverte_string('123')
 print(invertida)
