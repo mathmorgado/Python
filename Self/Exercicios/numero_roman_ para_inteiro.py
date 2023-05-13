@@ -30,10 +30,4 @@ def from_roman(n):
     
     return num
 
-    
-
-
-
 print(from_roman('MMCMXCVI'))
-
-
