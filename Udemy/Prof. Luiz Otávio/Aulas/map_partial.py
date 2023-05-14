@@ -53,9 +53,7 @@ novos_produtos = list(map(
 print_iter(produtos)
 print_iter(novos_produtos)
 
-print(
-    list(map(
-        lambda x: x * 3,
-        [1, 2, 3, 4]
-    ))
-)
+print(list(map(
+    lambda valor: valor * 5,
+    [1, 2, 3, 4, 5]
+)))
