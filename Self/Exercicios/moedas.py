@@ -15,7 +15,7 @@ def is_moeda(valor):
             valor = float(valor)
             return valor
         except ValueError:
-            print('Por favor, Digite um núemro válido! Ex: 35,80\n')
+            print('Por favor, Digite um núemro válido! Ex: 3215,80\n')
             continue
 
 
@@ -25,8 +25,9 @@ moedas = [1, 0.5, 0.25, 0.1, 0.05, 0.01]
 valor = is_moeda('Digite um valor: R$')
 qtde = 0
 
+print('\nNOTAS')
 while True:
-    if valor < 2 and valor >= 1:
+    if valor < 2:
         print(f'{qtde} notas de R${nota}')
         qtde = 0
         break
@@ -42,6 +43,7 @@ while True:
             qtde = 0
             break
 
+print('\nMOEDAS')
 while True:
     if valor == 0:
         print(f'{qtde} moedas de R${moeda}')
