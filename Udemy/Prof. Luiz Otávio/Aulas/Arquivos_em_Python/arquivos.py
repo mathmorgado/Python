@@ -26,6 +26,26 @@ caminho_arquivo = 'aula116.txt' # cria o arquivo já na pasta em questão
 # arquivo = open(caminho_arquivo, 'w')
 # mexer nele
 # arquivo.close() sempre fechar
-with open(caminho_arquivo, 'w') as arquivo: # with com open() já abre e fecha o arquivo
-    print('Olá mundo')
-    print('Arquivo vai ser fechado')
+
+# O 'w' apaga o arquivo e executa o que for pedido dentro do with, já o 'a' escreve ao final sem apagar o arquivo
+with open(caminho_arquivo, 'w+', encoding='utf8') as arquivo: # with com open() já abre e fecha o arquivo / encoding='utf8' serve para que caracteres especiais sejam lidos
+    arquivo.write('Linha 1\n')
+    arquivo.write('Linha 2\n')
+    arquivo.writelines(
+        ('Linha 3\n', 'Linha 4\n')
+    )
+    arquivo.seek(0, 0)
+    print(arquivo.read())
+    print('Lendo')
+    arquivo.seek(0, 0)
+    print(arquivo.readline(), end='')
+    print(arquivo.readline().strip())
+    print(arquivo.readline().strip())
+
+    print('READLINES')
+    arquivo.seek(0, 0)
+    for linha in arquivo.readlines():
+        print(linha.strip())
+
+# os.remove(caminho_arquivo) ou os.unlink(caminho_arquivo)
+# os.rename(caminho_arquivo, 'aula116-2.txt')
