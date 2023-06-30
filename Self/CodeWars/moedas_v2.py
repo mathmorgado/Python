@@ -1,13 +1,4 @@
-"""
-Passo 1: Tratar valor
-Passo 2: Pegar valor tratado
-Passo 3: Defenir notas/moedas
-Passo 4: Definir condição que subtrair do valor apenas notas/moedas menores
-Passo 5: Exibir quantas notas/moedas de cada foram usadas
-"""
-
-
-def is_moeda(valor):
+def obter_valor_monetario():
     while True:
         valor = input('Digite um valor: R$').replace(',', '.')
 
@@ -15,47 +6,45 @@ def is_moeda(valor):
             valor = float(valor)
             return valor
         except ValueError:
-            print('Por favor, Digite um núemro válido! Ex: 3215,80\n')
-            continue
+            print('Por favor, digite um número válido! Ex: 3215,80\n')
 
 
-notas = [100, 50, 20, 10, 5, 2]
-moedas = [1, 0.5, 0.25, 0.1, 0.05, 0.01]
+def calcular_cedulas(valor):
+    notas = [100, 50, 20, 10, 5, 2]
+    qtde = 0
 
-valor = is_moeda('Digite um valor: R$')
-qtde = 0
-
-print('\nNOTAS')
-while True:
-    if valor < 2:
-        print(f'{qtde} notas de R${nota}')
-        qtde = 0
-        break
-
-    for nota in notas:
-        if valor // nota:
-            valor -= nota
-            qtde += 1
-            break
+    print('\nNOTAS')
+    while valor >= 2:
+        for nota in notas:
+            if valor >= nota:
+                valor -= nota
+                qtde += 1
+                break
         else:
-            notas.remove(notas[0])
-            print(f'{qtde} notas de R${nota}')
+            print(f'{qtde} notas de R${nota:.2f}')
             qtde = 0
-            break
+            notas.pop(0)
+    print(f'{qtde} notas de R${nota:.2f}')
 
-print('\nMOEDAS')
-while True:
-    if valor == 0:
-        print(f'{qtde} moedas de R${moeda}')
-        break
 
-    for moeda in moedas:
-        if round(valor, 2) // moeda:
-            valor = round(valor, 2) - moeda
-            qtde += 1
-            break
+def calcular_moedas(valor):
+    moedas = [1, 0.5, 0.25, 0.1, 0.05, 0.01]
+    qtde = 0
+
+    print('\nMOEDAS')
+    while valor > 0:
+        for moeda in moedas:
+            if round(valor, 2) >= moeda:
+                valor = round(valor, 2) - moeda
+                qtde += 1
+                break
         else:
-            moedas.remove(moedas[0])
-            print(f'{qtde} moedas de R${moeda}')
+            print(f'{qtde} moedas de R${moeda:.2f}')
             qtde = 0
-            break
+            moedas.pop(0)
+    print(f'{qtde} moedas de R${moeda:.2f}')
+
+
+valor = obter_valor_monetario()
+calcular_cedulas(valor)
+calcular_moedas(valor)
