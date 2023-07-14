@@ -1,5 +1,6 @@
 from Pacotes.Desafio_115.Sistema.Modulos_Sistema import Cadastros
-from Pacotes.Desafio_115.Arquivo.Modulos_Arquivo import *
+from Pacotes.Desafio_115.Arquivo.Modulos_Arquivo \
+    import ArquivoExiste, CriarArquivo
 
 arq = 'Pessoas.txt'
 

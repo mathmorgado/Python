@@ -1,6 +1,7 @@
-from Pacotes.Desafio_115.Arquivo.Modulos_Arquivo import *
-from Pacotes.Desafio_115.Interface.Modulos_Interface import *
 from time import sleep
+from Pacotes.Desafio_115.Interface.Modulos_Interface import Menu, Titulo
+from Pacotes.Desafio_115.Arquivo.Modulos_Arquivo import \
+      LerArquivo, CadastroArquivo
 
 
 def LeiaInt(entrada):
@@ -8,7 +9,8 @@ def LeiaInt(entrada):
         try:
             acesso = int(input(entrada))
         except (ValueError, TypeError):
-            print('\033[31mERRO: Tipo de dado Inválido! Por favor, digite uma das opção válidas.')
+            print('\033[31mERRO: Tipo de dado Inválido!'
+                  ' Por favor, digite uma das opção válidas.')
             sleep(0.05)
             continue
         except KeyboardInterrupt:
@@ -19,14 +21,13 @@ def LeiaInt(entrada):
             return acesso
 
 
-def Cadastros(entrada):    
+def Cadastros(entrada):
     while True:
         Menu('Pessoas Cadastradas', 'Cadastrar Nova Pessoa', 'Sair do Sistema')
         acesso = LeiaInt(entrada)
 
         if acesso == 1:
             LerArquivo('Pessoas.txt')
-
 
         elif acesso == 2:
             Titulo('NOVO CADASTRO')
@@ -39,5 +40,6 @@ def Cadastros(entrada):
             exit()
 
         else:
-            print('\033[31mERRO: Opção inválida! Por favor, digite uma opção válida.\033[m')
+            print('\033[31mERRO: Opção inválida! '
+                  'Por favor, digite uma opção válida.\033[m')
             continue
