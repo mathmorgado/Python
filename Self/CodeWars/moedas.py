@@ -16,7 +16,6 @@ def is_moeda(valor):
             return valor
         except ValueError:
             print('Por favor, Digite um núemro válido! Ex: 3215,80\n')
-            continue
 
 
 notas = [100, 50, 20, 10, 5, 2]
