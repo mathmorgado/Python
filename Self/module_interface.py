@@ -4,14 +4,14 @@ def linha(qted=45):
 
 def Titulo(msg):
     linha()
-    print(f'{msg}'.center(45))
+    print(f'\033[93m{msg:^45}\033[m')
     linha()
 
 
-def Menu(*Opções):
-    Titulo('MENU PRINCIPAL')
+def Menu(*Opções, title):
+    Titulo(title)
     c = 1
     for opção in Opções:
-        print(f'\033[93m{c}- \033[34m{opção}\033[m')
+        print(f'{c}- {opção}\033[m')
         c += 1
-    linha()
+    print()

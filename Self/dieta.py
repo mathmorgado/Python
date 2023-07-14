@@ -1,12 +1,16 @@
+from module_interface import linha, Menu
+
 taxa_ativ_dict = {'1': 1.2, '2': 1.375, '3': 1.55, '4': 1.725}
 
 while True:
-    print('1- Masculino\n2- Feminino')
+    Menu('Masculino', 'Feminino', title='Info')
     genero = int(input('Gênero biológico[1/2]: '))
 
     if genero not in (1, 2):
         print('Gênero inválido!')
         continue
+
+    linha()
 
     print('1- Sedentário\n2- Pouco ativo\n'
           '3- Moderadamente ativo\n4- Altamente ativo')
@@ -15,6 +19,8 @@ while True:
     if taxa_ativ not in '1234':
         print('Taxa de atividade inválida!')
         continue
+
+    linha()
 
     break
 
