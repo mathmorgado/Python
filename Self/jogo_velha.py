@@ -1,10 +1,9 @@
-wrong_letters = ''
 secret_word = 'frango empanado'
+wrong_letters = ''
 secret_letters = ''
 word = ''
 
-
-print(word, '\nTEMA: Comida')
+print('TEMA: Comida')
 
 while word != secret_word:
     word = ''
