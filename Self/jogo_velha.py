@@ -3,16 +3,10 @@ wrong_letters = ''
 secret_letters = ''
 word = ''
 
-print('TEMA: Comida')
+print('TEMA: Comida\n')
 
 while word != secret_word:
     word = ''
-    guess = input('Digite uma letra: ')
-
-    if guess in secret_word:
-        secret_letters += guess
-    else:
-        wrong_letters += guess
 
     for letter in secret_word:
         if letter != ' ':
@@ -20,4 +14,11 @@ while word != secret_word:
         else:
             word += ' '
 
-    print(word, f'{wrong_letters}')
+    print(word, f'\n\nErradas: {wrong_letters}\n')
+
+    guess = input('Digite uma letra: ')
+
+    if guess in secret_word:
+        secret_letters += guess
+    else:
+        wrong_letters += guess
