@@ -11,6 +11,8 @@ lista_soma  = [2, 4, 6, 8]
 """
 
 # from itertools import zip_longest
+
+
 def zip_soma(lista_1, lista_2):
     return [x + y for x, y in zip(lista_1, lista_2)]
     # return [x + y for x, y in zip_longest(lista_1, lista_2, fillvalue=0)]
