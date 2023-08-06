@@ -10,8 +10,11 @@
 # [('Salvador', 'BA'), ('Ubatuba', 'SP'), ('Belo Horizonte', 'MG')]
 
 # from itertools import zip_longest
+
+
 def zipper(lista_1, lista_2):
-    intervalo_maximo = min(len(lista_1), len(lista_2)) # Vai retornar o ultimo indice da menor lista!
+    # Vai retornar o ultimo indice da menor lista!
+    intervalo_maximo = min(len(lista_1), len(lista_2))
     return [(lista_1[i], lista_2[i]) for i in range(intervalo_maximo)]
 
 

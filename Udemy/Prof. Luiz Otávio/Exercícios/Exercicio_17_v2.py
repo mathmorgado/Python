@@ -9,6 +9,7 @@
 # Resultado
 # [('Salvador', 'BA'), ('Ubatuba', 'SP'), ('Belo Horizonte', 'MG')]
 
+
 def zipper(lista_1, lista_2):
     tamanho_lista_1 = len(lista_1)
     tamanho_lista_2 = len(lista_2)
@@ -35,4 +36,3 @@ lista_1 = ['Salvador', 'Ubatuba', 'Belo Horizonte']
 lista_2 = ['BA', 'SP', 'MG', 'RJ']
 
 print(zipper(lista_1, lista_2))
-
