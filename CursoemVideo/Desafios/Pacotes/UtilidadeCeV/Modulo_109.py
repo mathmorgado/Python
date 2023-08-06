@@ -6,6 +6,7 @@ def aumentar(num, qtde=10, format=False):
     else:
         return num + ((num / 100) * qtde)
 
+
 def diminuir(num, qtde=10, format=False):
     if format:
         val = num - ((num / 100) * qtde)

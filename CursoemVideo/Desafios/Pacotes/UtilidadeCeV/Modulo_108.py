@@ -1,6 +1,7 @@
 def aumentar(num, qtde=10):
     return num + ((num / 100) * qtde)
 
+
 def diminuir(num, qtde=10):
     return num - ((num / 100) * qtde)
 

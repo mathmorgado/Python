@@ -4,8 +4,6 @@ def format(num):
     return val
 
 
-
-
 def resumo(num, aumento=10, redução=10):
     dobro = num * 2
     metade = num / 2
