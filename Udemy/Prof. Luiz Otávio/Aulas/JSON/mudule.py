@@ -27,5 +27,5 @@ pessoas = [
 BASE_DIR = os.path.dirname(__file__)
 SAVE_TO = os.path.join(BASE_DIR, 'arquivo-python.json')
 
-with open(SAVE_TO, 'w') as file:
+with open(SAVE_TO, 'w', encoding='utf8') as file:
     json.dump(pessoas, file, indent=2)
