@@ -38,7 +38,7 @@ def refazer(tarefas, tarefas_desfeitas):
         print('\nNenhuma tarefa para refazer!')
         return
 
-    tarefas.append(tarefas_desfeitas.pop())
+    adicionar(tarefas_desfeitas.pop(), tarefas)
 
 
 comandos = {
