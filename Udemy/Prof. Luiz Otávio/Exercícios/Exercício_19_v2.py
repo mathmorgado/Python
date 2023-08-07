@@ -23,39 +23,58 @@ def Menu(*Opções):
     print(30*'-')
 
 
-Menu('Tarefas', 'Desfazer', 'Refazer', 'Clear')
+def listar(tarefas):
+    if not tarefas:
+        print('\nNão tem nehuma tarefa na lista!')
+        return
+
+    print('\nTarefas:')
+    for tarefa in tarefas:
+        print(f'\t{tarefa}')
+
+
+def adicionar(tarefa, tarefas):
+    if not tarefa:
+        print('\nNenhuma tarefa digitada!')
+        return
+
+    tarefas.append(tarefa) if tarefa not in tarefas else None
+
+
+def desfazer(tarefas, tarefas_desfeitas):
+    if not tarefas:
+        print('\nNenhuma tarefa para desfazer!')
+        return
+
+    tarefas_desfeitas.append(tarefas.pop()) if tarefas[-1] \
+        not in tarefas_desfeitas else tarefas.pop()
+
+
+def refazer(tarefas, tarefas_desfeitas):
+    if not tarefas_desfeitas:
+        print('\nNenhuma tarefa para refazer!')
+        return
+
+    tarefas.append(tarefas_desfeitas.pop())
+
+
+Menu('Listar', 'Desfazer', 'Refazer', 'Clear')
 
 while True:
-    task = str(input('Digite a tarefa ou comando: ')).lower()
+    task = str(input('\nDigite a tarefa ou comando: ')).lower()
 
     if task == 'desfazer' or task == '2':
+        desfazer(tarefas, tarefas_desfeitas)
 
-        try:
-
-            if tarefas[-1] in tarefas_desfeitas:
-                tarefas.pop()
-            else:
-                tarefas_desfeitas.append(tarefas.pop())
-                print(tarefas_desfeitas)
-
-        except IndexError:
-            print('Nada para se desfazer')
-
-    elif task == 'tarefas' or task == '1':
-        print(tarefas)
+    elif task == 'listar' or task == '1':
+        listar(tarefas)
 
     elif task == 'refazer' or task == '3':
-        try:
-            tarefas.append(tarefas_desfeitas.pop())
-        except IndexError:
-            print('Nada para se refazer')
+        refazer(tarefas, tarefas_desfeitas)
 
     elif task == 'clear' or task == '4':
         system('cls')
         Menu('Tarefas', 'Desfazer', 'refazer', 'clear')
 
     else:
-        if task in tarefas:
-            continue
-        else:
-            tarefas.append(task)
+        adicionar(task, tarefas)
