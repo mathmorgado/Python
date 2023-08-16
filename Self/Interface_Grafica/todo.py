@@ -1,8 +1,8 @@
 import PySimpleGUI as sg
 
 
-# Criando o layout
-def criar_janela_inicial():
+# Create layout
+def create_start_window():
     sg.theme('DarkBlue4')
     linha = [
         [sg.Checkbox(''), sg.Input('')]
@@ -15,10 +15,10 @@ def criar_janela_inicial():
     return sg.Window('Todo List', layout=layout, finalize=True)
 
 
-# Criar janela
-window = criar_janela_inicial()
+# Create window
+window = create_start_window()
 
-# Eventos
+# Events
 while True:
     event, values = window.read()
     if event == sg.WINDOW_CLOSED:
@@ -30,4 +30,4 @@ while True:
             )
     elif event == 'Reset':
         window.close()
-        window = criar_janela_inicial()
+        window = create_start_window()
