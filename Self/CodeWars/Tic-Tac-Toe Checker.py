@@ -21,6 +21,7 @@ for i in range(len(board)):
 
         if board[i][h] == 0:
             found_zero = True
+            hori_win = False
             break
 
         if (current_hori != first_hori):
@@ -35,6 +36,7 @@ for i in range(len(board)):
 
         if board[i][h] == 0:
             found_zero = True
+            vert_win = False
             break
 
         if (current_vert != first_vert):
@@ -49,6 +51,7 @@ for i in range(len(board)):
 
         if board[i][h] == 0:
             found_zero = True
+            diag_win = False
             break
 
         if (current_diag != first_diag):
@@ -63,6 +66,7 @@ for i in range(len(board)):
 
         if board[i][h] == 0:
             found_zero = True
+            invert_diag_win = False
             break
 
         if (invert_current_diag != invert_first):
@@ -74,12 +78,16 @@ for i in range(len(board)):
     if hori_win or vert_win or diag_win or invert_diag_win:
         if hori_win:
             winner = first_hori
+            print("h")
         elif vert_win:
             winner = first_vert
+            print("v")
         elif diag_win:
             winner = first_diag
+            print("d")
         else:
             winner = invert_first
+            print("id")
         break
 
 if hori_win or vert_win or diag_win or invert_diag_win:
