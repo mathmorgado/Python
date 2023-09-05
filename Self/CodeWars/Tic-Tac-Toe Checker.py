@@ -4,8 +4,9 @@ board = [
     [1, 0, 1],
 ]
 
-hori_win = True
-vert_win = True
+hori_win = False
+vert_win = False
+diag_win = False
 
 winner = None
 
@@ -34,7 +35,19 @@ for i in range(len(board)):
 
         vert_win = True
 
-    if hori_win or vert_win:
+    for d in range(len(board[i])):
+        invert_first = board[-1][-1]
+
+        current_diag = board[d][d]
+        invert_current_diag = board[-d][-d]      
+
+        if (current_diag != board[d][d] or invert_current_diag != invert_first):
+            diag_win = False
+            break
+
+        diag_win = True
+
+    if hori_win or vert_win or diag_win:
         winner = first
         break
 
