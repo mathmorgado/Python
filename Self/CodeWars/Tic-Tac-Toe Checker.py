@@ -39,9 +39,9 @@ for i in range(len(board)):
         invert_first = board[-1][-1]
 
         current_diag = board[d][d]
-        invert_current_diag = board[-d][-d]      
+        invert_current_diag = board[-d][-d]
 
-        if (current_diag != board[d][d] or invert_current_diag != invert_first):
+        if (current_diag != first or invert_current_diag != invert_first):
             diag_win = False
             break
 
