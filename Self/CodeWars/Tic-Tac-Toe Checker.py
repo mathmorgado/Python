@@ -12,10 +12,11 @@ invert_diag_win = False
 winner = None
 
 found_zero = False
+
 for i in range(len(board)):
 
     for h in range(len(board[i])):
-        first_hori = [0][i]
+        first_hori = board[i][0]
         current_hori = board[i][h]
 
         if board[i][h] == 0:
@@ -29,8 +30,12 @@ for i in range(len(board)):
         hori_win = True
 
     for v in range(len(board[i])):
-        first_vert = [i][0]
+        first_vert = board[0][v]
         current_vert = board[v][i]
+
+        if board[i][h] == 0:
+            found_zero = True
+            break
 
         if (current_vert != first_vert):
             vert_win = False
@@ -42,6 +47,10 @@ for i in range(len(board)):
         first_diag = board[0][0]
         current_diag = board[d][d]
 
+        if board[i][h] == 0:
+            found_zero = True
+            break
+
         if (current_diag != first_diag):
             diag_win = False
             break
@@ -51,6 +60,10 @@ for i in range(len(board)):
     for i_d in range(len(board[i])):
         invert_first = board[0][-1]
         invert_current_diag = board[d][-d]
+
+        if board[i][h] == 0:
+            found_zero = True
+            break
 
         if (invert_current_diag != invert_first):
             invert_diag_win = False
@@ -67,8 +80,6 @@ for i in range(len(board)):
             winner = first_diag
         else:
             winner = invert_first
-            break
-        
         break
 
 if hori_win or vert_win or diag_win or invert_diag_win:
