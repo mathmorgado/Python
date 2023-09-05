@@ -1,5 +1,5 @@
 board = [
-    [1, 1, 2],
+    [0, 0, 0],
     [1, 2, 2],
     [2, 0, 1],
 ]
@@ -20,6 +20,7 @@ for i in range(len(board)):
 
         if board[i][h] == 0:
             found_zero = True
+            break
 
         if (current_hori != first):
             hori_win = False
