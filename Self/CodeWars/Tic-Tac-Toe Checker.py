@@ -1,12 +1,13 @@
 board = [
-    [1, 2, 1],
-    [2, 1, 2],
-    [1, 0, 1],
+    [1, 1, 2],
+    [1, 2, 2],
+    [2, 0, 1],
 ]
 
 hori_win = False
 vert_win = False
 diag_win = False
+invert_diag_win = False
 
 winner = None
 
@@ -36,22 +37,32 @@ for i in range(len(board)):
         vert_win = True
 
     for d in range(len(board[i])):
-        invert_first = board[-1][-1]
-
         current_diag = board[d][d]
-        invert_current_diag = board[-d][-d]
 
-        if (current_diag != first or invert_current_diag != invert_first):
+        if (current_diag != first):
             diag_win = False
             break
 
         diag_win = True
 
-    if hori_win or vert_win or diag_win:
+    for i_d in range(len(board[i])):
+        invert_first = board[0][-1]
+        invert_current_diag = board[d][-d]
+
+        if (invert_current_diag != invert_first):
+            invert_diag_win = False
+            break
+
+        invert_diag_win = True
+
+    if hori_win or vert_win or diag_win or invert_diag_win:
+        if invert_diag_win:
+            winner = invert_first
+            break
         winner = first
         break
 
-if hori_win or vert_win:
+if hori_win or vert_win or diag_win or invert_diag_win:
     print(winner)
 elif found_zero:
     print("Not finished")
